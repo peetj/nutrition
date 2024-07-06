@@ -19,7 +19,7 @@ def search():
 
 @app.route('/nutrition/<food_id>')
 def nutrition(food_id):
-    food = fs.food_get_v4(food_id)
+    food = fs.food_get(food_id)
     return render_template('nutrition.html', food=food)
 
 if __name__ == '__main__':
