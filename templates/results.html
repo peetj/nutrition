@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Search Results</h1>
+  <ul>
+    {% for food in foods %}
+      <li class="result-item"><a href="{{ url_for('nutrition', food_id=food.food_id) }}">{{ food.food_name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

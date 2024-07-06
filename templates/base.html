@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipe App</title>
+  <!-- Add any CSS or JS files here -->
+    <link rel="stylesheet" href={{ url_for('static', filename='styles.css')}}>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <!-- Add navigation links here if needed -->
+        </nav>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

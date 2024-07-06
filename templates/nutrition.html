@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Nutrition Information</h1>
+{% if food %}
+  <h2>Food Name: {{ food.food_name }}</h2>
+  {% if food.servings and food.servings.serving %}
+    {% if food.servings.serving is iterable %}
+      {% for serving in food.servings.serving %}
+        <h3>Serving Information:</h3>
+        <p class="serving-size">Serving Size: {{ serving.serving_description }}</p>
+        <p>Calories: {{ serving.calories }}</p>
+        <p>Fat: {{ serving.fat }}g</p>
+        <p>Carbohydrate: {{ serving.carbohydrate }}g</p>
+        <p>Protein: {{ serving.protein }}g</p>
+        <!-- Add more nutritional information as needed -->
+      {% endfor %}
+    {% else %}
+      {% set serving = food.servings.serving %}
+      <h3>Serving Information:</h3>
+      <p class="serving-size">Serving Size: {{ serving.serving_description }}</p>
+      <p>Calories: {{ serving.calories }}</p>
+      <p>Fat: {{ serving.fat }}g</p>
+      <p>Carbohydrate: {{ serving.carbohydrate }}g</p>
+      <p>Protein: {{ serving.protein }}g</p>
+      <!-- Add more nutritional information as needed -->
+    {% endif %}
+  {% else %}
+    <p>No serving information available.</p>
+  {% endif %}
+
+  <!-- Dump the whole food object as JSON -->
+
+{#
+  <h2>Full Data Dump</h2>
+  <pre>{{ food | tojson(indent=2) }}</pre>
+#}
+{% else %}
+  <p>No food information available.</p>
+{% endif %}
+{% endblock %}

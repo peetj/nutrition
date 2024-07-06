@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Food Search</h1>
+  <form action="/search" method="post">
+    <input type="text" name="search_term" required placeholder="Enter food item to search">
+    <input type="submit" value="Search">
+  </form>
+{% endblock %}
